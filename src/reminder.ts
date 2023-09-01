@@ -2,6 +2,7 @@ import { type Handler, schedule } from '@netlify/functions';
 import { getNewItems } from './util/notion';
 import { blocks, slackApi } from './util/slack';
 
+
 const postnewNotionItemsToSlack: Handler = async () => {
   const items = await getNewItems();
 
@@ -30,3 +31,4 @@ const postnewNotionItemsToSlack: Handler = async () => {
 };
 
 export const handler = schedule('* * * * *', postnewNotionItemsToSlack);
+
