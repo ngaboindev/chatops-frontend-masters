@@ -1,5 +1,3 @@
-import type { Handler } from '@netlify/functions';
-
 import { parse } from 'querystring';
 import { blocks, modal, slackApi, verifySlackRequest } from './util/slack';
 import { saveItem } from './util/notion';
@@ -119,7 +117,7 @@ async function handleInterativity(payload: SlackModalPayload) {
   };
 }
 
-export const handler: Handler = async (event) => {
+export const handler = async (event) => {
   const valid = verifySlackRequest(event);
   if (!valid) {
     console.error('invalid request');
